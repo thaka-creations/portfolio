@@ -1,103 +1,189 @@
+"use client"
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    name: "API Gateway Platform",
+    description:
+      "Designed and implemented a scalable API gateway for microservices, handling millions of requests per day with advanced authentication and rate limiting.",
+    tech: ["Node.js", "Express", "Redis", "Docker", "Kubernetes"],
+    link: "#",
+  },
+  {
+    name: "Real-Time Analytics Engine", 
+    description:
+      "Built a real-time analytics engine for processing and visualizing streaming data, enabling instant business insights.",
+    tech: ["Python", "Kafka", "PostgreSQL", "Grafana", "Debezium"],
+    link: "#",
+  },
+  {
+    name: "Multi-Channel Messaging Gateway",
+    description: 
+      "Developed a unified messaging gateway that handles SMS, WhatsApp, and email communications, enabling seamless multi-channel notifications and communications.",
+    tech: ["Node.js", "Safaricom API", "SendGrid", "WhatsApp Business API", "Redis", "MongoDB"],
+    link: "#",
+  },
+  {
+    name: "Pesa Gateway Package",
+    description:
+      "Created a comprehensive Python package for integrating with various payment gateways and mobile money services in Africa.",
+    tech: ["Python", "M-Pesa"],
+    link: "https://pypi.org/project/pesa-gateway/",
+  },
+  {
+    name: "AI Question Extractor",
+    description:
+      "Built a Python package that uses machine learning to automatically extract and generate questions from educational content and text materials.",
+    tech: ["Python", "Machine Learning", "NLP", "Transformers"],
+    link: "https://pypi.org/project/ai-question-extractor",
+  },
+  {
+    name: "Tafa Talk",
+    description:
+      "Developed a school communication platform that facilitates seamless interaction between students, parents and teachers. Features include announcements, academic performance tracking, and direct messaging.",
+    tech: ["React", "Django", "PostgreSQL", "WebSockets", "Redis"],
+    link: "#",
+  },
+  // Add more projects as needed
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-black dark:to-blue-950 text-black dark:text-white font-[family-name:var(--font-geist-sans)]">
+      <main className="w-full max-w-3xl mx-auto flex flex-col gap-16 items-center px-4 py-12 sm:py-20">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {/* Hero Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center gap-4 text-center"
+        >
+          <div className="relative">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/profile.jpg"
+              alt="Abdul Nelfrank"
+              width={140}
+              height={140}
+              className="rounded-full border-4 border-white dark:border-gray-800 shadow-lg object-cover"
+              priority
             />
-            Deploy now
-          </a>
+            <span className="absolute bottom-2 right-2 w-4 h-4 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight">Abdul Nelfrank</h1>
+          <h2 className="text-lg sm:text-xl text-blue-700 dark:text-blue-300 font-semibold">
+            Senior Backend Engineer
+          </h2>
+          <p className="max-w-xl text-base text-gray-700 dark:text-gray-300 mt-2">
+            Experienced backend engineer specializing in scalable distributed systems, API design, and cloud infrastructure. Passionate about building robust platforms and mentoring engineering teams.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mt-5">
+            <a
+              href="https://www.linkedin.com/in/abdul-nelfrank-47242094/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0077b5] hover:bg-[#005983] text-white rounded-full font-medium shadow transition-transform duration-300 transform hover:scale-105"
+              aria-label="LinkedIn"
+            >
+              <svg width="20" height="20" fill="currentColor" className="inline" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/thaka-creations"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 hover:bg-gray-700 text-white rounded-full font-medium shadow transition-transform duration-300 transform hover:scale-105"
+              aria-label="GitHub"
+            >
+              <svg width="20" height="20" fill="currentColor" className="inline" viewBox="0 0 24 24">
+                <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </motion.section>
+
+        {/* Divider */}
+        <div className="w-full border-t border-gray-200 dark:border-gray-800 my-4"></div>
+
+        {/* Projects Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="w-full"
+        >
+          <h3 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100 tracking-tight">
+            Projects
+          </h3>
+          <div className="grid gap-8 sm:grid-cols-2">
+            {projects.map((project, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}
+                className="flex flex-col h-full p-6 border border-gray-200 dark:border-gray-800 rounded-xl bg-white dark:bg-gray-900 shadow-sm transition-shadow duration-300 group"
+              >
+                <h4 className="text-lg font-semibold mb-2 text-blue-800 dark:text-blue-200 group-hover:underline">
+                  {project.name}
+                </h4>
+                <p className="text-gray-700 dark:text-gray-300 flex-1 mb-3">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {project.link && project.link !== "#" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-auto text-blue-700 dark:text-blue-300 hover:underline font-medium"
+                  >
+                    View Project
+                  </a>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Get in Touch Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          className="w-full mt-16 flex flex-col items-center"
+        >
+          <div className="w-full border-t border-gray-200 dark:border-gray-800 my-8"></div>
+          <h3 className="text-2xl font-bold mb-2 text-center text-gray-900 dark:text-gray-100 tracking-tight">
+            Get in Touch
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-4 text-center">
+            Interested in working together or have a question? Feel free to reach out!
+          </p>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:nelfrankaj@gmail.com"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-800 text-white rounded-full font-medium shadow transition-transform duration-300 transform hover:scale-105"
           >
-            Read our docs
+            <svg width="20" height="20" fill="currentColor" className="inline" viewBox="0 0 24 24">
+              <path d="M2 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2zm0 2h20v.01L12 13 2 6.01V6zm0 2.236l7.803 5.852a2 2 0 0 0 2.394 0L22 8.236V18H2V8.236z"/>
+            </svg>
+            nelfrankaj@gmail.com
           </a>
-        </div>
+        </motion.section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
