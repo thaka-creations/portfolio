@@ -49,6 +49,8 @@ const projects = [
 ];
 
 export default function Home() {
+  const imagePath = process.env.NODE_ENV === 'production' ? '/portfolio/images/profile.jpg' : '/images/profile.jpg';
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-black dark:to-blue-950 text-black dark:text-white font-[family-name:var(--font-geist-sans)]">
       <main className="w-full max-w-3xl mx-auto flex flex-col gap-16 items-center px-4 py-12 sm:py-20">
@@ -62,7 +64,7 @@ export default function Home() {
         >
           <div className="relative">
             <Image
-              src="/images/profile.jpg"
+              src={imagePath}
               alt="Abdul Nelfrank"
               width={140}
               height={140}
