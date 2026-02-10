@@ -6,7 +6,7 @@ const projects = [
   {
     name: "Tafa Analytics",
     description:
-      "Built a analytics platform for the Tafa School that allows the school to track the performance of the students and the teachers.",
+      "Built a analytics platform for Schools In Kenya that allows the school to track the performance of the students and the teachers.",
     tech: ["React", "Next.js"],
     link: "https://testing.tafaanalytics.co.ke/",
   },
